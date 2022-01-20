@@ -1,0 +1,483 @@
+1. built-in functional
+    alert
+    console
+    confirm
+        var isConfirm  = confirm('Message');
+        console.log(isConfirm);
+    prompt
+    setTimeout
+    setInterval
+
+
+2.  var result = 'A' && 'B' && 'C'   -> result = C;
+
+    '',  "",  NaN, undefined, false  -> false;
+    []   {}  -> true  
+
+
+3. string template:   console.log(`watashi wa:  ${fullName}  ${lastName}`);
+
+4. String method:
+    length :   .length
+    find   :   .indexOf('substr')   , .lastIndexOf('substr')
+    cut    :   .slice(4,10))
+    replace:   .replace('substr','new ssubtr')   , .replace(/substr/g, 'new substr')
+           :   .toUpperCase()   , toLowerCase()
+               .trim()  
+    split  :   .split(commom-substr)   ,  .split()  // tách chuỗi thành mảng
+           :   .charAt(index)
+            :   Number(str)  // chuyển kí tự thành số
+                parseFloat(str) //
+                parseInt(str);
+            :   .includes(substr, start_index)  // return true/false; 
+    
+    
+
+5. Number :  .toString()
+            .toFixed(n)   // lấy n chữ số sau dấu phẩy 
+            isNaN(number)
+            
+
+6. Array:
+        Array.isArray(object)  // kiểm tra một đối tượng là array hay ko    
+        arr.length
+        arr.toString()
+        arr.join('kí tự ngăn cách')   // trả về một chuỗi mà các kí tự dc ngăn cách
+        arr.pop()       // xóa phần tử ở cuối, trả về phần tử ấy
+        arr.push(items)       // thêm các phần tử vào cuối, trả về kích thước mới của mảng
+        arr.shift()      // xóa phần tử đầu tiên của mảng, trả về phần tử ấy
+        arr.unshift(items)   // thêm các phần tử vào đầu, trả về kích thước mới
+        arr.splice(startIndex, số lượng phần tử cần xóa)           // xóa đi phần tử
+        arr.splice(startIndex,  số lượng phần tử cần xóa, newItems )  //  xóa rồi chèn thêm các phần tử
+        arr1.concat(arr2)    // hợp arr2 vào arr1
+        arr.slice(startIndex, endIndex)
+        arr.indexOf(phần_tử_cần_tìm, chỉ_số_bắt đầu)   // return chỉ số
+        arr.includes(phần_tử_cần_tìm, chỉ_số_bắt đầu)   // return true/false
+        arr.join("phần tử ngăn cách") // nối các phần tử trong mảng, trả về chuỗi
+
+        arr.concat(mảng khác / phần tử/ nhiều phần tử)  // trả về một mảng mới được nối từ mảng đã cho
+7. Function
+    function tenham(){
+
+    }
+
+    // nhận nhiều tham số bằng đối tượng arguments
+    function tenham() {
+        console.log(arguments)
+    }
+
+    hàm không return -> trả về undefined
+
+    function trùng tên -> ghi đè
+
+    biến, hàm khai báo trong hàm -> chỉ được dùng trong hàm
+
+
+8. object
+        var myInfo = {
+            fullName : 'phamthenam',
+            age : 20,
+            state : 'unemployed'
+        };
+
+    var a = 'age';
+    myInfo.email = "thenamk20@gmail.com";
+
+    console.log(myInfo.fullName);
+    console.log(myInfo[a]);
+
+    //xóa key-value 
+    delete myInfo.fullName;
+    delete myInfo[a]
+
+    Object.keys(ten-doi-tuong) // Mảng các key
+    Object.values(ten-doi-tuong) // Mảng các values
+    
+
+9. object constructor
+    VD:
+        function User(firstName, lastName, age) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+
+            this.getName = function() {
+             return this.firstName;
+            }   
+        }
+
+
+        var user1 = new User("the", "name",20);
+
+        user1.sdt = '09876543';  // add thuộc tính cho riêng user1
+
+        console.log(user1);
+
+10. Object prototype
+    thêm thuộc tính, phương thức cho object ở ngoài hàm khởi tạo
+    VD (cùng vs ở trên):
+
+        User.prototype.address = "VN"   
+
+        User.prototype.getAddress = function () {
+            return this.address;
+        }
+
+11. Date object
+    VD:
+        var date = new Date();
+
+        var day = date.getDate();
+        var month =date.getMonth() + 1;
+        var year = date.getFullYear();
+
+        var currentDay = `${month}\\${day}\\${year}`
+
+        console.log(currentDay);
+
+12. switch - case : so sánh bằng ===
+
+13.   for loop: alike C++
+
+    -----for /in----------
+    for ( var key in arr/obj) {
+
+    }
+
+    --- for /of ---- ko dung cho obj
+    for(var value of arr){
+
+    }
+
+14.   Array:
+
+        arr.forEach(function(value, index){
+
+        });
+
+
+        every()  // return true khi tất cả các phần tử đều thỏa mãn dk
+
+            var myInfo = ['god','thunder','sun','sacred','moon'];
+
+            var isFull = myInfo.every(function(element, index){
+                    return element;
+            });
+
+        some() // đúng khi chỉ cần một trong các phần tử thỏa mãn điều kiện
+
+        find()  // return phần tử đầu tiên thỏa mãn đk
+
+        filter() // giống find() nhưng return tất cả các phần tử thỏa mãn
+
+        map()  // return mảng mới cùng số lượng phần tử mảng cũ
+
+
+        reduce((biến lưu trữ, item, index) => {
+            return biến-lưu-trữ-cho lần lặp sau
+        }, giá-trị-khởi-tạo)
+        // ứng dụng: làm phẳng mảng
+
+        Chú ý: .hasOwnProperty(index)
+
+
+15. Math Object 
+        .PI()
+        .round()
+        .max(a1,a2,a3,..) // ko truyền dc mảng vào
+        .min()
+        .ceil()
+        .floor()
+        .abs()
+        .random()
+
+-------------------------------HTML DOM-------------------
+
+DOM (document object model): mô hình dạng cây, quy chuẩn W3C
+3 thành phần (node): element, atrribute, text
+DOM nằm trong Web API
+
+16. Get element:
+    + by id
+    + by classname
+    + by tagname                
+    + by css selector        
+        VD:         document.querySelector('.box .heading2:nth-child(2)')
+                    document.querySelector('.box .heading2:first-child')
+
+    + by HTML DOCUMENT
+        VD: 
+            document.forms.form-id
+            document.querySelectorAll("input[type='checkbox']");
+            document.querySelector("input[type='checkbox'][value='1']");
+            document.querySelector('input[checked]:not([disabled])');
+            document.querySelector('input[disabled]:not([checked])');
+            document.querySelector('input[disabled][checked]');
+    
+
+17. Get Attribute 
+    2 kiểu:
+         elementNode.tên-attribute-hợplệ = ""
+         VD element.title = "ele"
+
+    or:  elementNode.getAddress/setAttribute = " "    //(phù hợp với cả các attribute ko có sẵn của element đó)
+
+
+    VD:
+        h1Element = document.querySelector('h1');
+
+        h1Element.setAttribute("title","Pham The Nam");
+
+        document.querySelector('div').setAttribute('class','box');
+
+        document.querySelector('img').setAttribute('width','100');
+
+
+18. Get Text 
+    innerText  :  phần chữ nhìn thấy 
+    textContent:  phần textNode thực sự trong thẻ, kể cả nội dung css
+
+
+19. innerHTML, outerHTML
+
+
+    var divHeading = document.querySelector('.box')
+
+    divHeading.innerHTML = '<h1 data = "hehe">Edward Newgate</h1>'
+
+
+20. ElementNode.style (css inline)
+    VD:
+        Object.assign(divHeading.style, {
+        backgroundColor: 'red',
+        width: '300px',
+        height: '100px'
+        })
+
+        or Object.style.ten-thuoc-tinh-css = ...
+
+21. elementNode.classList
+
+        add, contain, remove, toggle
+
+
+22. DOM Event: sự kiện diễn ra khi load trang hoặc khi người dùng tác động lên trang
+
+    1. Attribute events: viết trực tiếp mã js trong thẻ html (ít dùng)
+        VD:     
+             <h1 onclick = 'console.log(this.innerText)' class="heading1">Pham The Nam</h1>
+
+    2. Assign event using element node
+
+        VD:  
+
+            var divHeadings = document.querySelectorAll('.box h1')
+
+            for(var i in divHeadings) {
+                divHeadings[i].onclick = function(e) {
+                    console.log(e.target)
+                }
+            }
+
+
+    ví dụ hơn về DOM EVENT
+    https://fullstack.edu.vn/learning/javascript-co-ban?id=2283
+
+
+    preventDefault: ngăn chặn hành vi mặc định của trình duyệt lên một thẻ
+
+
+    stopPropagation:  ngăn chặn sự kiện nổi bọt
+
+
+23. DOM Event / Event EventListener
+    DOM Event 
+        .onclick = function () {
+            //do something
+        }
+
+
+    EventListener 
+
+        .addEventListener('click', function(){
+
+        })
+
+        .removeEventListener('click', function(){
+            
+        })
+
+
+24. JSON: một định dạng dữ liệu (dạng chuỗi)
+
+
+25. Promise - dùng để xử lý các thao tác bất đồng bộ
+                                    -------------
+    1 đối tượng promise nhận vào một function (gọi là executor, gồm 2 tham số :resolve, reject)
+
+    var promise = new Promise(function (resolve, reject) {
+        //logic
+        // thành công: resolve()   or   resolve(data)
+        // thất bại:   reject()    or   reject(data)
+    }) 
+                                    -------------
+    promise
+        .then(function(data) {
+
+         })
+        .then(function(data) {
+
+        })
+        .catch(function(data) {
+
+        })
+        .finally(function() {
+
+        })
+
+    Lưu ý: khi resolve() được gọi thì function trong khối then dc thực hiện
+           khi reject() được gọi thì function trong khối catch dc thực hiện
+           khi 1 trong 2 hoặc cả 2 được gọi thì function trong khối finally dc thực hiện
+
+
+    ----------
+    3 trạng thái: pending (không resolve() cũng ko reject()) - fullfilled (resolve() - thành công) - rejected (thất bại)
+
+    Tính chất chuỗi của một promise 
+        + DL return của một khối then này sẽ có thể trở thành input data của khối then tiếp theo
+        + Nếu một khối then không return một promise thì nó thực hiện ngay khối then sau nó
+            (một khối then mà return promise thì nó phải thực hiện xong mới đến lượt khối then tiếp theo)
+
+
+    var promise = Promise.resolve(data) // trả về một promise luôn thành công
+    var promise = Promise.reject()  // trả về một promise luôn thất bại
+
+    var promise = Promise.all([promise1, promise2]) : chỉ lọt vào then khi tất cả các promise ở trong đều resolve
+                                        trả lại kết quả là 1 mảng gồm kết quả của tất cả các promise (thực hiện song song các promise)
+
+
+26. Fetch: lấy dữ liệu ra từ các API  -> return một promise
+
+    fetch(urlAPI)
+        .then(response => response.json())    //return một promise trả về dl dạng json
+        .then(json => console.log(json))
+
+27. Javascript ES6:
+
+    + var / let, const
+
+    + Arrow function : không thể được dùng để làm function constructor 
+
+    + Classes: 
+        VD:
+            class Newgate {
+
+                constructor(name, age){
+                    this.name = name;
+                    this.age = age;
+                }
+
+                start(){
+
+                }
+
+                getName(){
+                    return this.name;
+                }
+            }
+
+    + Default parameters value : đặt cho những tham số không bắt buộc
+
+    + Enhance object literals
+         var fieldName = 'newName';
+
+         const course = {
+             [fieldName] = "thenam"
+             // <=> newName = "thenam
+         }
+
+    +   Destructuring & Rest parameters (...) -> áp dụng cho mảng và đối tượng
+
+        var array = ['dog','cat','bird','owl']
+
+        var [a,b,c,d] = array   // a = 'dog' , b = 'cat' , c = 'bird' , d = 'owl'
+
+        var [a,b,...rest] = array // a= 'dog', b = 'cat', rest = ['bird','owl']
+ 
+
+        function(a,b,...rest){
+
+        }
+        // truyền tham số không giới hạn
+
+        
+        function([a,b,...rest]){
+
+        }
+        // truyền mảng không giới hạn
+
+
+        var course = {
+            name:  'something'
+            price: 1200
+        };
+
+        var {name, price} = course   // truyền đúng giá trị là key
+
+        var {name: newName, price} = course // đổi tên 
+
+        var {name, ...rest}   = course       // rest = {price:1200}
+
+        var {name, text = "value"} =course  // default value của text là "value"
+    
+
+    + Spread operator (...)
+
+        ( bỏ đi cặp ngoặc của array or object)
+         -> dùng để nối nhiều mảng hay nhiều object. VD: 
+        
+
+        var animal = ['unicorn','pegasus','tiger']
+
+        var bird = ['owl','penguin','hawkey']
+
+        var sum = [...animal,...bird]
+
+        console.log(sum)
+
+        (trong TH nối nhiều object, các key trùng nhau sẽ bị ghi đè, tức là lấy cái đến sau)
+
+
+        // phân biệt toán tử rest vs spread
+
+        var animal = ['unicorn','pegasus','tiger']
+
+        function logger(...rest){ // rest
+            for(var i=0; i<rest.length; i++){
+                console.log(rest[i])
+            }
+        }
+
+        logger(...animal); // spread
+
+    + Tagged template literals
+
+
+    + Module
+
+        import tn, {NEW_GATE, GIORNO, sum} from './test.js';
+
+        //tn là export default
+        // {NEW_GATE,GIORNO, sum} là export thường
+
+
+        import * as new_name from './constain.js';
+        // import toàn bộ 
+
+
+    + Obtional chaining
+
+        obj.val?.prop
+        obj.val?.[expr]
+        obj.arr?.[index]
+        obj.func?.(args)
